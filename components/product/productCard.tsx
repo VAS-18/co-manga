@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import Image from "next/image";
+import { Star } from "lucide-react";
 
 const ProductCard = ({ product }: { product: any }) => {
   console.log(product.images[0]);
@@ -18,10 +19,22 @@ const ProductCard = ({ product }: { product: any }) => {
             />
           </Link>
         </CardHeader>
-        <CardContent className="text-xl font-bold flex flex-col hover:bg-red-500">
-          <div className="text-xs text-gray-500">{product.brand}</div>
-          <div className=" text-xl group-hover:text-gray-500">
-            {product.name}
+        <CardContent>
+          <div className="flex flex-col">
+            <div className="text-xs font-bold text-gray-500">
+              {product.brand}
+            </div>
+            <div className=" text-xl font-bold group-hover:text-gray-500">
+              {product.name}
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <span>{product.rating}⭐</span>
+            {product.stock > 0 ? (
+              <p className="font-bold mt-2">₹{product.price}</p>
+            ) : (
+              <p className="text-destructive mt-2">NOT IN STOCK</p>
+            )}
           </div>
         </CardContent>
       </Link>
