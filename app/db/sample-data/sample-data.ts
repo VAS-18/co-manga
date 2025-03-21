@@ -182,12 +182,18 @@ const sampleData = {
       name: "Batman: Year One",
       slug: "batman-year-one",
       category: "Comic Book",
-      description:
-        "The origin of Batman as he begins his fight against crime in Gotham.",
+      description: "The origin of Batman as he begins his fight against crime in Gotham.",
       images: [
         "/image/sample-products/batman-1.jpg",
         "/image/sample-products/batman-2.jpg",
       ],
+      price: 1399,
+      brand: "DC Comics",
+      rating: 4.8,
+      numReviews: 1000,
+      stock: 8,
+      isFeatured: false,
+      banner: null, 
     },
 
     {

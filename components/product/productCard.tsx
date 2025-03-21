@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import Image from "next/image";
-import { Star } from "lucide-react";
 
 const ProductCard = ({ product }: { product: any }) => {
   console.log(product.images[0]);
