@@ -43,7 +43,6 @@ const Menu = () => {
                 </Link>
               </Button>
               <ModeToggle />
-
               <SheetDescription></SheetDescription>
             </SheetContent>
           </Sheet>
