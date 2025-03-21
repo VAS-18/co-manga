@@ -4,10 +4,11 @@ export const metadata = {
 }
 
 const HomePage = () => {
+
   return ( 
-    <Button className="bg-white text-black">
-      HELLO
-    </Button>
+    <h1>
+      co-manga
+    </h1>
    );
 }
  
