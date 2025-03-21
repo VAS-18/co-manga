@@ -11,7 +11,7 @@
 !.yarn/versions
 
 /resources
-
+/sample-data
 # testing
 /coverage
 
