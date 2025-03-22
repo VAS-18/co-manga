@@ -8,7 +8,7 @@ const ProductCard = ({ product }: { product: any }) => {
     <Card className="w-full max-w-sm cursor-pointer group">
       <Link href={`/product/${product.slug}`}>
         <CardHeader className="items-center">
-          <Link href={`/product/${product.slug}`}>
+          {/* <Link href={`/product/${product.slug}`}> */}
             <Image
               src={product.images[0]}
               alt={product.name}
@@ -16,7 +16,7 @@ const ProductCard = ({ product }: { product: any }) => {
               width={300}
               priority={true}
             />
-          </Link>
+          {/* </Link> */}
         </CardHeader>
         <CardContent>
           <div className="flex flex-col">

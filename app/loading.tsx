@@ -1,5 +1,5 @@
-import loader from '@/public/image/loader.gif'
 import Image from 'next/image';
+
 
 const Loading = () => {
     return ( 
@@ -11,11 +11,12 @@ const Loading = () => {
             width: '100vw'
         }}>
             <Image
-                src={'/public/image/loader.gif'}
+                src='/image/Loading.gif'
                 alt='Loading Animation'
-                height={68}
-                width={68}
-                unoptimized={true}            
+                height={300}
+                width={300}
+                unoptimized={true}
+                priority           
             />
         </div>
      );
