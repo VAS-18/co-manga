@@ -1,4 +1,4 @@
-import ProductList from "@/components/product/product";
+import ProductList from "@/components/shared/product/product";
 import { getLatestProducts } from "@/lib/actions/product.actions";
 
 export const metadata = {

@@ -2,6 +2,7 @@
 
 import { PrismaClient } from "@prisma/client";
 import { convertToPlainObject } from "../utils";
+import { prisma } from "@/app/db/prisma";
 
 export async function getLatestProducts() {
     const prisma = new PrismaClient();
@@ -12,4 +13,12 @@ export async function getLatestProducts() {
     });
 
     return convertToPlainObject(data);
+}
+
+//get product by its slug
+
+export async function getProductBySlug(slug: string){
+    return await prisma.product.findFirst({
+        where: {slug: slug}
+    })
 }
