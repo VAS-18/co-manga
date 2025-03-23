@@ -9,7 +9,7 @@ const Header = () => {
         <div className='wrapper flex-between'>
             <div className="flex-start">
                 <Link href='/' className='flex-start'>
-                    <Image src='/image/logo.jpg' alt= 'logo'
+                    <Image src='/image/logo.png' alt= 'logo'
                         width={48}
                         height={48}
                         priority={true}
