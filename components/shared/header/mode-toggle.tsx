@@ -8,7 +8,6 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { DropdownMenuCheckboxItem } from "@radix-ui/react-dropdown-menu";
-import { MoonIcon, ShoppingCartIcon, Sun, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
