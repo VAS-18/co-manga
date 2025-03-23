@@ -1,4 +1,21 @@
+import { hashSync } from "bcrypt-ts-edge";
+
 const sampleData = {
+  user: [
+    {
+      name: 'john',
+      email: 'admin@example.com',
+      password: hashSync('123456', 10),
+      role: 'admin'
+    },
+    {
+      name: 'Doe',
+      email: 'user@example.com',
+      password: hashSync('123456', 10),
+      role: 'user'
+    }
+  ],
+
   products: [
     {
       name: "One Piece, Vol. 1",
@@ -182,7 +199,8 @@ const sampleData = {
       name: "Batman: Year One",
       slug: "batman-year-one",
       category: "Comic Book",
-      description: "The origin of Batman as he begins his fight against crime in Gotham.",
+      description:
+        "The origin of Batman as he begins his fight against crime in Gotham.",
       images: [
         "/image/sample-products/batman-1.jpg",
         "/image/sample-products/batman-2.jpg",
@@ -193,7 +211,7 @@ const sampleData = {
       numReviews: 1000,
       stock: 8,
       isFeatured: false,
-      banner: null, 
+      banner: null,
     },
 
     {
