@@ -1,4 +1,3 @@
-import ProductList from "@/components/shared/product/product";
 import ProductImages from "@/components/shared/product/product-images";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
