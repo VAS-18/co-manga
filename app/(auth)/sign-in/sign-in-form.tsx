@@ -67,7 +67,7 @@ const SignInForm = () => {
           <div className="text-center text-destructive">{data.message}</div>
         )}
         <div className="text-sm text-center text-muted-foreground">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href={"/sign-up"} target="_self" className="Link underline">
             Sign Up
           </Link>
