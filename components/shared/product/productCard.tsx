@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Product } from "@/types";
 
 const ProductCard = ({ product }: { product: Product }) => {
-  console.log(product.images[0]);
+  // console.log(product.images[0]);
   return (
     <Card className="w-full max-w-sm cursor-pointer group">
       <Link href={`/product/${product.slug}`}>
