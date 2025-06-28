@@ -1,10 +1,10 @@
 import ProductImages from "@/components/shared/product/product-images";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getProductBySlug } from "@/lib/actions/product.actions";
-import { ShoppingCart } from "lucide-react";
+
 import { notFound } from "next/navigation";
+// import AddtoCart from "@/components/shared/product/add-to-cart";
 
 
 const ProductDetails = async (props: { params: Promise<{ slug: string }> }) => {
@@ -59,9 +59,15 @@ const ProductDetails = async (props: { params: Promise<{ slug: string }> }) => {
                 </div>
                 {product.stock > 0 ? (
                     <div className="flex-center mt-5">
-                        <Button>
-                            <ShoppingCart/>Add to Cart
-                        </Button>
+                        {/* <AddtoCart item={{
+                          productId: product.id,
+                          name: product.name,
+                          slug: product.slug,
+                          price: Number(product.price),
+                          qty: 1,
+                          Image: product.images![0]
+
+                        }}></AddtoCart> */}
                     </div>
                 ) : null}
               </CardContent>
