@@ -14,6 +14,9 @@ export const insertProductsSchema = z.object({
   price: z.number(),
 });
 
+
+// ****AUTH SCHEMAS****
+
 //Schema for user sign-in
 export const signInFormSchema = z.object({
   email: z.string().email("Invalid Email"),
@@ -32,3 +35,35 @@ export const signUpFormSchema = z.object({
   path: ['confirmPassword'],
 });
 
+// ****AUTH SCHEMA****
+
+
+
+
+
+
+
+
+
+
+
+// ****CART SCHEMAS****
+
+export const cartItemSchema = z.object({
+  productId : z.string().min(1, 'Product is required'),
+  name : z.string().min(1, 'Product name is required'),
+  slug : z.string().min(1, 'Slug is required'),
+  qty : z.number().int().nonnegative('Qty must be a positive number'),
+  Image : z.string().min(1,'Product is required'),
+  price: z.number().int().nonnegative('Price must be positive')
+});
+
+export const insertCartSchema = z.object({
+  items: z.array(cartItemSchema),
+  itemsPrice: z.number().int().nonnegative('Price must be positive'),
+  totalPrice: z.number().int().nonnegative('Total Price must be positive'),
+  shippingPrice: z.number().int().nonnegative('Shipping Price must be positive'),
+  taxPrice: z.number().int().nonnegative('Tax Price must be positive'),
+  sessionCartId: z.string().min(1, 'session cart id is required'),
+  userId: z.string().optional().nullable()
+})
