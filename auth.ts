@@ -4,7 +4,8 @@ import { prisma } from "./app/db/prisma";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compareSync } from "bcrypt-ts-edge";
 import type { NextAuthConfig } from "next-auth";
-
+import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
 
 export const config = {
   pages: {
@@ -67,26 +68,47 @@ export const config = {
       return session;
     },
 
-    async jwt({token,user}: any){
-        //Assign User fields to token
-
-        if(user){
-          token.user = user.role;
-        }
-
-        //if user has no name use the email
-        if(user.name === 'NO_NAME'){
+    async jwt({ token, user }: any) {
+      // Assign User fields to token
+      if (user) {
+        token.user = user.role;
+        // Only update name if user.name exists and is 'NO_NAME'
+        if (user.name && user.name === 'NO_NAME') {
           token.name = user.email!.split('@')[0];
-
-          //Update the database to reflect the token name
+          // Update the database to reflect the token name
           await prisma.user.update({
-            where: {id: user.id},
-            data: {name: token.name}
-          })
+            where: { id: user.id },
+            data: { name: token.name }
+          });
+        } else if (user.name) {
+          token.name = user.name;
         }
+        token.role = user.role;
+      }
+      return token;
+    },
 
-        return token;
-    }
+    authorized({ request, auth}: any){
+      if (!request.cookies.get('sessionCartId')) {
+        const sessionCartId = crypto.randomUUID();
+
+        
+        const newRequestHeaders = new Headers(request.headers);
+
+        const response = NextResponse.next({
+          request: {
+            headers: newRequestHeaders
+          }
+        });
+
+        response.cookies.set('sessionCartId', sessionCartId);
+
+        return response;
+      }
+      else{
+        return true
+      }
+     }
 
   },
 } satisfies NextAuthConfig;

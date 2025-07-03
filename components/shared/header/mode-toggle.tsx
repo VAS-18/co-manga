@@ -10,6 +10,7 @@ import {
 import { DropdownMenuCheckboxItem } from "@radix-ui/react-dropdown-menu";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Sun } from "lucide-react";
 
 const ModeToggle = () => {
   const [mounted, setMounted] = useState(false);
@@ -28,11 +29,11 @@ const ModeToggle = () => {
       <DropdownMenuTrigger>
         <Button asChild variant={"ghost"} className="focus-visible:ring-0 focus-visible:ring-offset-0">
           {theme === "system" ? (
-            <h1>Sun</h1>
+            <Sun/>
           ) : theme === "dark" ? (
             <h1>Moon</h1>
           ) : (
-            <h1>wild</h1>
+            <h1><Sun/></h1>
           )}
         </Button>
       </DropdownMenuTrigger>
